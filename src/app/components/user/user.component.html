@@ -3,7 +3,8 @@
     <li>Age: {{age}}</li>
     <li>Email: {{email}}</li>
     <li>{{address.street}} {{address.city}}, {{address.state}}</li>
-</ul>:w
+</ul>
+
 
 
 <button (click)="onClick()">Click here</button>
@@ -53,12 +54,21 @@
   </li>
 </ul>
 
-<h1>Drag and Drop Testing</h1>
+<h1>Drag and Drop Testing (ng2 drag and drop)</h1>
 <ul>
   <li draggable> Coffee </li>
   <li draggable> Tea </li>
   <li draggable> Milk </li>
 </ul>
+
+<h1>Drag and Drop Testing (ng2-dragula)</h1>
+<ul [dragula] = '"bag-items"'>
+  <li> Coffee </li>
+  <li> Tea </li>
+  <li> Milk </li>
+</ul>
+
+
 
 <!--li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of vegetables"
   [dragClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled">

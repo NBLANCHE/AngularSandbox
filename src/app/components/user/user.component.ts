@@ -41,7 +41,7 @@ export class UserComponent implements OnInit {
     this.dataService.getPosts().subscribe((posts) => {
       console.log(posts);
       // Assign the posts to the model property
-      // And now we can use it in the user template 
+      // And now we can use it in the user template
       this.posts = posts;
 
 
