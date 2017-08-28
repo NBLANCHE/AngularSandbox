@@ -8,6 +8,8 @@ import { UserComponent } from './components/user/user.component';
 import { ConfigdragdropComponent} from './components/configdragdrop/configdragdrop.component';
 
 import { DataService } from './services/data.service';
+import { DragulaDNDService } from './services/dragula-dnd.service';
+import { DbService } from './services/db.service';
 import { AboutComponent } from './components/about/about.component';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -36,7 +38,7 @@ const appRoutes: Routes = [
     DragulaModule
   ],
   // need to import service as a provider, because services are providers
-  providers: [DataService],
+  providers: [DataService, DragulaDNDService, DbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
