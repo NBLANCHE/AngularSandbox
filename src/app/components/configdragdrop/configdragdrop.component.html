@@ -7,28 +7,35 @@
 
 <div>
   <div class='wrapper'>
-    <div class='container' [dragula]='"first-bag"'>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eam stabilem appellas. Videsne quam sit magna dissensio? Qualem igitur hominem natura inchoavit? Conferam tecum, quam cuique verso rem subicias;</div>
+    <div class='container' [dragula]='"first-bag"'[dragulaModel]="tasks" [attr.data-id]="'B1'" #bag1>
+      <div *ngFor="let task of tasks; let i = index" [attr.data-id]="task.id" [attr.data-index]="i">{{task.name}} (ID: {{task.id}})</div>
+
+        <!-- <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eam stabilem appellas. Videsne quam sit magna dissensio? Qualem igitur hominem natura inchoavit? Conferam tecum, quam cuique verso rem subicias;</div>
         <div>Ille enim occurrentia nescio quae comminiscebatur; Quonam, inquit, modo? Erat enim Polemonis. Sed videbimus. Bestiarum vero nullum iudicium puto. Praeclare hoc quidem. Idemne, quod iucunde?</div>
         <div>Tum mihi Piso: Quid ergo? Minime vero, inquit ille, consentit. Ut optime, secundum naturam affectum esse possit. Illi enim inter se dissentiunt. Hoc loco tenere se Triarius non potuit. </div>
         <div>Sed hoc sane concedamus. Utilitatis causa amicitia est quaesita. Sed videbimus. Duo Reges: constructio interrete.</div>
         <div>Frater et T. Hoc simile tandem est? Velut ego nunc moveor. Quare conare, quaeso. Quid, quod res alia tota est? Quid autem habent admirationis, cum prope accesseris?</div>
         <div>{{ configsbind }}</div>
-        <div>{{ configsdb }}</div>
+        <div>{{ configsdb }}</div> -->
     </div>
-    <div class='container' [dragula]='"first-bag"'>
-<<<<<<< HEAD
-=======
-      <div *ngFor="let config of configsArray"> 
+    <div class='container' [dragula]='"first-bag"'[dragulaModel]="tasks2" [attr.data-id]="'B2'" #bag2>
+      <div *ngFor="let task of tasks2; let i = index" [attr.data-id]="task.id" [attr.data-index]="i">{{task.name}} (ID: {{task.id}})</div>
+      <!-- <div *ngFor="let config of configsArray"> 
        {{ config }}
-      </div>
+      </div> -->
 
->>>>>>> a404fb44f2bb2bee16b11a1c78829d7dffaf10e7
       <!-- <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed residamus, inquit, si placet. Quis enim redargueret? Aeque enim contingit omnibus fidibus, ut incontentae sint. Duo Reges: constructio interrete. Quo igitur, inquit, modo? Primum divisit ineleganter;</div>
       <div>Hic nihil fuit, quod quaereremus. Poterat autem inpune; Que Manilium, ab iisque M. Praeteritis, inquit, gaudeo.</div>
       <div>Faceres tu quidem, Torquate, haec omnia; Cur id non ita fit? Poterat autem inpune; Quae diligentissime contra Aristonem dicuntur a Chryippo.</div>
       <div>Quis est tam dissimile homini. An potest cupiditas finiri? Egone quaeris, inquit, quid sentiam? Sed ad rem redeamus;</div>
       <div>Sit enim idem caecus, debilis. Non potes, nisi retexueris illa. Si longus, levis. Haec dicuntur inconstantissime. Sit enim idem caecus, debilis.</div> -->
     </div>
+    
+
   </div>
 </div>
+
+<p>Drop from bag 2 to bag 1 to see the result!</p>
+<p *ngIf="transferData">Latest transfer: ID: {{transferData.taskId}} oldLabelId:{{transferData.oldLabelId}} newLabelId:{{transferData.newLabelId}} oldIndex:{{transferData.oldIndex}} newIndex:{{transferData.newIndex}}</p>
+
+

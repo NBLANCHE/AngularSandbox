@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
 import { DragulaDNDService } from '../../services/dragula-dnd.service';
-import { DragulaService } from 'ng2-dragula/ng2-dragula';
+import { DragulaModule, DragulaService } from 'ng2-dragula/ng2-dragula';
 import { DbService } from '../../services/db.service';
 
 @Component({
@@ -13,7 +13,44 @@ export class ConfigdragdropComponent implements OnInit {
   configdb: any;
   configsArray: any;
 
+
+
+  name:string;
+  tasks:any;
+  tasks2:any;
+  transferData: any;
+  @ViewChild('bag1') bag1: any;
+  @ViewChild('bag2') bag2: any;
+
   constructor(private dragulaSerivce: DragulaService, private dbService: DbService) {
+    let that = this;
+    this.tasks = [{name: 'Dummy One', id: 0 },{name: 'Dummy Two', id: 1 },{name: 'Dummy Three', id: 3 },{name: 'Dummy Four', id: 4 }];
+    this.tasks2 = [{name: 'Dummy Five', id: 5 },{name: 'Dummy Six', id: 6 },{name: 'Dummy Seven', id: 7 },{name: 'Dummy Eight', id: 8 }];
+    
+    console.log(that);
+    console.log(this);
+      dragulaSerivce.dropModel.subscribe((args: any) => {
+          console.log(args)
+          let [bagName, el, source, target] = args;
+          if(this.bag1.nativeElement === target){ // needed since dropModel triggers for all bags, not only on the dropped bag
+            let transferData:any = {
+              taskId: el.dataset.id,
+              oldLabelId: source.dataset.id,
+              newLabelId: target.dataset.id,
+              oldIndex: el.dataset.index
+          }
+
+          for(let i = 0; i < that.tasks2.length; i++){
+            let task = that.tasks2[i];
+              if(task.id == transferData.taskId){
+                  transferData.newIndex = i;
+                  that.transferData = transferData;
+                  break;
+              }
+          }
+        }
+      });
+
     dragulaSerivce.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
       console.log("OnDrag");
@@ -30,13 +67,7 @@ export class ConfigdragdropComponent implements OnInit {
       this.onOut(value.slice(1));
       console.log("onOut");
     });
-<<<<<<< HEAD
-
-
-    dragulaSerivce.setOptions('first-bag', {removeOnSpill:true});
-=======
-    dragulaSerivce.setOptions('first-bag', {removeOnSpill: true});
->>>>>>> a404fb44f2bb2bee16b11a1c78829d7dffaf10e7
+    dragulaSerivce.setOptions('first-bag', {removeOnSpill: true, copy: true});
 
   }
   private hasClass(el: any, name: string) {
@@ -73,12 +104,12 @@ export class ConfigdragdropComponent implements OnInit {
 
   private onOut(args) {
     let [e, el, container] = args;
-    console.log("line 0");
-    console.log(e);;
-    console.log("line 1");
-    console.log(el);
-    console.log("line 2");
-    console.log(args);
+    // console.log("line 0");
+    // console.log(e);;
+    // console.log("line 1");
+    // console.log(el);
+    // console.log("line 2");
+    // console.log(args);
     this.removeClass(el, 'ex-over');
   }
 
