@@ -11,16 +11,22 @@ export class ConfigdragdropComponent implements OnInit {
   constructor(private dragulaSerivce: DragulaService) {
     dragulaSerivce.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
+      console.log("OnDrag");
     });
     dragulaSerivce.drop.subscribe((value) => {
       this.onDrop(value.slice(1));
+      console.log("onDrop");
     });
     dragulaSerivce.over.subscribe((value) => {
       this.onOver(value.slice(1));
+      console.log("onOver");
     });
     dragulaSerivce.out.subscribe((value) => {
       this.onOut(value.slice(1));
+      console.log("onOut");
     });
+
+
     dragulaSerivce.setOptions('first-bag', {removeOnSpill:true});
 
   }
@@ -42,6 +48,7 @@ export class ConfigdragdropComponent implements OnInit {
 
   private onDrag(args) {
     let [e, el] = args;
+
     this.removeClass(e, 'ex-moved');
   }
 
@@ -57,6 +64,12 @@ export class ConfigdragdropComponent implements OnInit {
 
   private onOut(args) {
     let [e, el, container] = args;
+    console.log("line 0");
+    console.log(e);;
+    console.log("line 1");
+    console.log(el);
+    console.log("line 2");
+    console.log(args);
     this.removeClass(el, 'ex-over');
   }
 
