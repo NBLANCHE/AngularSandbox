@@ -13,13 +13,19 @@
         <div>Tum mihi Piso: Quid ergo? Minime vero, inquit ille, consentit. Ut optime, secundum naturam affectum esse possit. Illi enim inter se dissentiunt. Hoc loco tenere se Triarius non potuit. </div>
         <div>Sed hoc sane concedamus. Utilitatis causa amicitia est quaesita. Sed videbimus. Duo Reges: constructio interrete.</div>
         <div>Frater et T. Hoc simile tandem est? Velut ego nunc moveor. Quare conare, quaeso. Quid, quod res alia tota est? Quid autem habent admirationis, cum prope accesseris?</div>
+        <div>{{ configsbind }}</div>
+        <div>{{ configsdb }}</div>
     </div>
     <div class='container' [dragula]='"first-bag"'>
-      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed residamus, inquit, si placet. Quis enim redargueret? Aeque enim contingit omnibus fidibus, ut incontentae sint. Duo Reges: constructio interrete. Quo igitur, inquit, modo? Primum divisit ineleganter;</div>
+      <div *ngFor="let config of configsArray"> 
+       {{ config }}
+      </div>
+
+      <!-- <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed residamus, inquit, si placet. Quis enim redargueret? Aeque enim contingit omnibus fidibus, ut incontentae sint. Duo Reges: constructio interrete. Quo igitur, inquit, modo? Primum divisit ineleganter;</div>
       <div>Hic nihil fuit, quod quaereremus. Poterat autem inpune; Que Manilium, ab iisque M. Praeteritis, inquit, gaudeo.</div>
       <div>Faceres tu quidem, Torquate, haec omnia; Cur id non ita fit? Poterat autem inpune; Quae diligentissime contra Aristonem dicuntur a Chryippo.</div>
       <div>Quis est tam dissimile homini. An potest cupiditas finiri? Egone quaeris, inquit, quid sentiam? Sed ad rem redeamus;</div>
-      <div>Sit enim idem caecus, debilis. Non potes, nisi retexueris illa. Si longus, levis. Haec dicuntur inconstantissime. Sit enim idem caecus, debilis.</div>
+      <div>Sit enim idem caecus, debilis. Non potes, nisi retexueris illa. Si longus, levis. Haec dicuntur inconstantissime. Sit enim idem caecus, debilis.</div> -->
     </div>
   </div>
 </div>

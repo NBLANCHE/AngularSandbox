@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { Ng2DragDropModule } from 'ng2-drag-drop';
 import { DragulaModule } from 'ng2-dragula';
+import { DbinterfaceComponent } from './components/dbinterface/dbinterface.component';
 
 const appRoutes: Routes = [
   {path: '', component: UserComponent},
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     UserComponent,
     AboutComponent,
-    ConfigdragdropComponent
+    ConfigdragdropComponent,
+    DbinterfaceComponent
   ],
   imports: [
     BrowserModule,
